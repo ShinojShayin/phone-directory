@@ -3,11 +3,12 @@ import React, { Component } from "react";
 import "./ShowSubscribers.css";
 import "./common/common.css";
 import Header from "./Header.js";
+import { Link } from "react-router-dom";
 
 class ShowSubscribers extends Component {
-  deleteHandler(msg) {
-    alert(msg);
-  }
+  onDeletedClick = (subscriberId) => {
+    this.props.deleteSubscriberHandler(subscriberId);
+  };
 
   render() {
     // let subscribers = [
@@ -27,7 +28,10 @@ class ShowSubscribers extends Component {
       <div>
         <Header />
         <div className="component-body-container">
-          <button className="custom-btn add-btn">Add</button>
+          <Link to="/add">
+            <button className="custom-btn add-btn">Add</button>
+          </Link>
+
           <div className="grid-container heading-container">
             <span className="grid-item name-heading">Name</span>
             <span className="grid-item phone-heading">Phone</span>
@@ -41,7 +45,7 @@ class ShowSubscribers extends Component {
                 <span className="grid-item action-btn-container">
                   <button
                     className="custom-btn delete-btn"
-                    onClick={this.deleteHandler.bind(this, "Kaise ho")}
+                    onClick={this.onDeletedClick.bind(this, sub.id)}
                   >
                     Delete
                   </button>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import "./common/common.css";
 import "./AddSubscriber.css";
+import { Link } from "react-router-dom";
 
 class AddSubscriber extends Component {
   constructor() {
@@ -33,6 +34,8 @@ class AddSubscriber extends Component {
       name: "",
       phone: "",
     });
+
+    this.props.history.push("/");
   };
 
   render() {
@@ -42,7 +45,9 @@ class AddSubscriber extends Component {
       <div>
         <Header heading="Add Subscriber"></Header>
         <div className="component-body-container">
-          <button className="custom-btn">back</button>
+          <Link to="/">
+            <button className="custom-btn">back</button>
+          </Link>
 
           <form
             className="subscriber-form"

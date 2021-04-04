@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./ShowSubscriber";
+import PhoneDirectory from "./PhoneDirectory";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<PhoneDirectory />, document.getElementById("root"));

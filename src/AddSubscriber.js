@@ -25,6 +25,16 @@ class AddSubscriber extends Component {
     console.log("componentDidMount called");
   }
 
+  onFormSubmitted = (e) => {
+    e.preventDefault();
+    this.props.addSubscriberHandler(this.state);
+    this.setState({
+      id: 0,
+      name: "",
+      phone: "",
+    });
+  };
+
   render() {
     console.log("render called");
     const { name, phone } = this.state;
@@ -34,7 +44,10 @@ class AddSubscriber extends Component {
         <div className="component-body-container">
           <button className="custom-btn">back</button>
 
-          <form className="subscriber-form">
+          <form
+            className="subscriber-form"
+            onSubmit={this.onFormSubmitted.bind(this)}
+          >
             <label htmlFor="name" className="label-control">
               Name:{" "}
             </label>

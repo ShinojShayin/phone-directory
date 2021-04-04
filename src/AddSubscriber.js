@@ -4,7 +4,30 @@ import "./common/common.css";
 import "./AddSubscriber.css";
 
 class AddSubscriber extends Component {
+  constructor() {
+    super();
+    this.state = {
+      id: 0,
+      name: "",
+      phone: "",
+    };
+    console.log("constructor called");
+  }
+
+  inputChangeHandler = (e) => {
+    const state = this.state;
+    state[e.target.name] = e.target.value;
+    this.setState(state);
+    console.log(this.state);
+  };
+
+  componentDidMount() {
+    console.log("componentDidMount called");
+  }
+
   render() {
+    console.log("render called");
+    const { name, phone } = this.state;
     return (
       <div>
         <Header heading="Add Subscriber"></Header>
@@ -21,6 +44,7 @@ class AddSubscriber extends Component {
               type="text"
               className="input-control"
               name="name"
+              onChange={this.inputChangeHandler}
             />
             <br />
             <br />
@@ -33,6 +57,7 @@ class AddSubscriber extends Component {
               type="text"
               className="input-control"
               name="phone"
+              onChange={this.inputChangeHandler}
             />
             <br />
             <br />
@@ -42,9 +67,9 @@ class AddSubscriber extends Component {
                 Subscriber to be added:{" "}
               </span>
               <br />
-              <span className="subscriber-info">Name: </span>
+              <span className="subscriber-info">Name: {name}</span>
               <br />
-              <span className="subscriber-info">Phone: </span>
+              <span className="subscriber-info">Phone: {phone}</span>
               <br />
             </div>
 

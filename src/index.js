@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import AddSubscriber from "./AddSubscriber";
+import App from "./ShowSubscriber";
 
-ReactDOM.render(<AddSubscriber />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));

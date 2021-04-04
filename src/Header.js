@@ -9,8 +9,8 @@ import "./Header.css";
 //   textTransform: "uppercase",
 // };
 
-const Header = function () {
-  return <div className="header">Phone Directory</div>;
+const Header = function (props) {
+  return <div className="header">{props.heading}</div>;
 };
 
 // import React, {Component} from 'react';
